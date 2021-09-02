@@ -1,0 +1,12 @@
+.widget {
+	width: 200px;
+	height: 200px;
+	border-radius: 5px;
+	border: 5px solid grey;
+	background-color: palegreen;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: grey;
+}
