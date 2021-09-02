@@ -1,0 +1,141 @@
+@import "../styles/colors.scss";
+@import "../styles/text";
+
+.button {
+	@extend %paragraph-title;
+
+	font-family: "Public Sans", sans-serif;
+	height: 36px;
+	min-width: 100px;
+	padding: 8px 24px;
+	border-radius: 18px;
+	outline: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: solid;
+	white-space: nowrap;
+	transition: all 0.25s;
+	border-width: 2px;
+
+	&.has-icon {
+		padding: 8px 16px;
+	}
+
+	&.loading {
+		position: relative;
+	}
+
+	&.loading .text {
+		visibility: hidden;
+	}
+
+	&.loading .icon {
+		visibility: hidden;
+	}
+
+	&.large {
+		height: 45px;
+		border-radius: 22.5px;
+		padding: 0 42px;
+	}
+
+	.loader {
+		position: absolute;
+		width: 24px;
+		height: 24px;
+	}
+
+	.icon {
+		fill: $white;
+		width: 16px;
+		height: 16px;
+		margin-right: 8px;
+	}
+
+	&:disabled {
+		opacity: 0.6;
+	}
+}
+
+@mixin button-color($color) {
+	$hover-color: mix(#000000, $color, 10%);
+	$focus-color: mix(#000000, $color, 20%);
+
+	background-color: $color;
+	border-color: $color;
+	color: $white;
+
+	&:hover:not(:disabled) {
+		background-color: $hover-color;
+		border-color: $hover-color;
+	}
+
+	&:active {
+		background-color: $focus-color;
+		border-color: $focus-color;
+	}
+
+	&:focus {
+		border-color: $focus-color;
+	}
+}
+
+.base {
+	$hover-color: $lightest-sky-blue-two;
+	$focus-color: mix(#000000, $lightest-sky-blue-two, 5%);
+
+	background-color: $isabeline;
+	border-color: $isabeline;
+	color: $dark-gray;
+
+	&:hover:not(:disabled) {
+		background-color: $hover-color;
+		border-color: $hover-color;
+		color: $dark-sky-blue;
+	}
+
+	&:active {
+		background-color: $focus-color;
+		border-color: $focus-color;
+		color: $dark-sky-blue;
+	}
+}
+
+.primary {
+	@include button-color($sky-blue);
+}
+
+.danger {
+	@include button-color($dark-red);
+}
+
+.midnight {
+	@include button-color($midnight-blue);
+}
+
+.success {
+	@include button-color($dark-green);
+}
+
+.warning {
+	@include button-color($dark-orange);
+}
+
+.outline {
+	@include button-color(rgba(255, 255, 255, 0));
+
+	border-width: 1px;
+	border-color: $light-gray;
+	color: $dark-gray;
+
+	&:focus {
+		border-width: 2px;
+		padding: 0 23px;
+	}
+
+	&:disabled {
+		color: $light-gray;
+	}
+}
